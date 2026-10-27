@@ -22,7 +22,7 @@ The first standard test stored a malformed 12-digit US callback number. Backend 
 
 A shared call transcribed spoken LG as “an allergy”; the model wrongly rejected it. Context-preserving clarification and boosted brand keywords were published in version 1. The next shared call correctly asked “Did you say L G?”, continued and saved LG. That retest still repeated brand confirmation and goodbye.
 
-Final published version 2 retains all business rules and adds confirmed-field memory and immediate end_call after one closing. The Voice Orb Share dialog was explicitly switched to version 2 and verified. These last conversation-polish changes have configuration readback and 61 passing automated tests; a final spoken retest remains pending. Automated tests are not proof of natural conversation behavior.
+Final published version 2 retains all business rules and adds confirmed-field memory and immediate end_call after one closing. The Voice Orb Share dialog was explicitly switched to version 2 and verified. These last conversation-polish changes have configuration readback and 61 passing automated tests; the final spoken retest passed: call_c6d7d8b2a6f7770b5f71c692d2f ran on version 2, clarified LG once, confirmed the phone, obtained $99 agreement, stored REQ-71C24B21, and ended with one goodbye. Its analyzed summary was retrieved through the external restricted reviewer feed. Automated tests are not proof of natural conversation behavior.
 
 Customer company labels are suppressed; extraction now distinguishes appliance brands from represented companies. Company/phone readback and corrected symptom wording were added.
 
@@ -37,3 +37,7 @@ Telegram transport intermittently times out on this network. Its queue retries a
 ## Coverage limits
 
 61 automated tests passed. Samsung and GE aliases, hangups, concurrency, authentication and additional edge cases have automated coverage; not every proposed live test was spoken. Cimo naturalness was approved by Levon; no formal three-voice comparison was performed. No finite tests establish that a model can never hallucinate.
+
+## Final readiness
+
+The version-2 shared-link call and protected reviewer summary were verified end to end. Ready for a scheduled live presentation while the laptop/backend/tunnel remain online. Telegram remains supplementary due to delayed delivery; no claim of unattended availability or perfect model behavior is made.
