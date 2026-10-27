@@ -62,6 +62,7 @@ def payloads(base,voice,token,llm_id='REPLACE_WITH_CREATED_LLM_ID'):
          'begin_message':'Thanks for calling appliance repair. How can I help?',
          'general_prompt':(ROOT/'agent'/'prompt.md').read_text(),'general_tools':tools(base,token)}
     agent={'agent_name':'Appliance Repair — Levon Demo','response_engine':{'type':'retell-llm','llm_id':llm_id},
+           'boosted_keywords':['LG','Samsung','General Electric','GE','Whirlpool','American Home Shield'],
            'voice_id':voice,'language':'en-US','voice_speed':0.97,
            'responsiveness':0.8,'interruption_sensitivity':0.75,'enable_backchannel':False,
            'reminder_trigger_ms':12000,'reminder_max_count':1,

@@ -4,6 +4,14 @@
     "type": "retell-llm",
     "llm_id": "REPLACE_WITH_CREATED_LLM_ID"
   },
+  "boosted_keywords": [
+    "LG",
+    "Samsung",
+    "General Electric",
+    "GE",
+    "Whirlpool",
+    "American Home Shield"
+  ],
   "voice_id": "",
   "language": "en-US",
   "voice_speed": 0.97,

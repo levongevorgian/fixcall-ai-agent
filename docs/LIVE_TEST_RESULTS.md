@@ -33,4 +33,10 @@ The tested agent was published as version 0; Retell then created draft version 1
 
 ## Shared link and free reviewer setup
 
-Levon enabled Voice Orb sharing and confirmed a successful shared-link call. He confirmed Cimo voice quality and company/phone readback in a final representative call. The paid-hosting route was abandoned at his request; no paid service was created by this agent. A separate restricted dashboard review key now provides GET-only access to calls after the review window began. 61 tests pass. Final new shared-link-call visibility through that restricted feed remains to be checked.
+Levon enabled Voice Orb sharing and confirmed a successful shared-link call. He confirmed Cimo voice quality and company/phone readback in a final representative call. The paid-hosting route was abandoned at his request; no paid service was created by this agent. A separate restricted dashboard review key now provides GET-only access to calls after the review window began. 61 tests pass. The completed shared-link call call_6d58e60083256926ede2031a06f appeared in the external restricted reviewer feed with its analyzed summary, verifying post-call interface delivery. That same call exposed the LG recognition failure recorded below.
+
+## Brand-transcription failure discovered during final review
+
+Call call_6d58e60083256926ede2031a06f transcribed spoken LG as “an allergy”. The model incorrectly used the spam refusal despite the preceding washer-repair context. This is a failed live regression, not a pass. Prompt updated to preserve repair context, confirm ambiguous brand spellings, and require clear unrelated intent before spam rejection. Retell brand keywords added. The final shared-link retest must establish that LG clarification now continues intake.
+
+The corrected prompt and brand keywords were read back from published version 1. The shared link remains on version 1. Live LG regression retest pending.

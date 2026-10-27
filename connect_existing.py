@@ -39,6 +39,7 @@ def main():
         'start_speaker':'agent'})
     api('PATCH','/update-agent/'+urllib.parse.quote(agent_id,safe=''),{
         'agent_name':'Appliance Repair — Levon Demo',
+        'boosted_keywords':['LG','Samsung','General Electric','GE','Whirlpool','American Home Shield'],
         'webhook_url':base+'/webhooks/retell',
         'webhook_events':['call_ended','call_analyzed'],
         'post_call_analysis_data':analysis_fields()})

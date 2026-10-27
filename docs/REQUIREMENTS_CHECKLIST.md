@@ -13,6 +13,6 @@ Source: Alex's supplied AI_Agent_Test_Task.md.pdf. Recommended tools are recomme
 | No invented prices, timelines or capabilities | Prompt limits; backend fee gate and truthful tool outcomes | Cannot guarantee zero model errors in every input |
 | Natural English, female voice, one question at a time | Cimo selected; Levon confirmed clear natural voice; prompt/turn-taking refined | Subjective quality assessed by Levon, not comparative acoustic study |
 | Notification after call in actual interface | Signed call-ended/analyzed webhooks, persistent browser feed; Telegram messages received | Telegram intermittent; browser feed is primary review interface |
-| Live testable complete implementation | Shared Voice Orb call completed by Levon; source and 61 automated tests provided | Free tunnel requires laptop online; final restricted-feed shared-call verification pending |
+| Live testable complete implementation | Shared Voice Orb call completed by Levon; source and 61 automated tests provided | Free tunnel requires laptop online; restricted-feed delivery verified; LG speech-ambiguity regression retest pending |
 
 Booking is a persistent handoff with a reference, matching the supplied task's booking-function handoff. Unsupported warranty brands use a documented message fallback because the task gives no conversion policy. No payment collection, technician timetable or full repair price is invented.
