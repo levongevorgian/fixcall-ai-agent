@@ -1,0 +1,29 @@
+# Paid, single-instance service with durable SQLite storage.
+# Review the current Render price before creating the service.
+services:
+  - type: web
+    name: fixcall-levon-demo
+    runtime: python
+    plan: starter
+    buildCommand: python -m compileall -q core.py server.py
+    startCommand: python server.py
+    healthCheckPath: /health
+    disk:
+      name: call-data
+      mountPath: /opt/render/project/src/runtime
+      sizeGB: 1
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: PORT
+        value: 10000
+      - key: RETELL_API_KEY
+        sync: false
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_CHAT_ID
+        sync: false
+      - key: TOOL_TOKEN
+        sync: false
+      - key: DASHBOARD_TOKEN
+        generateValue: true

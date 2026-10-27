@@ -1,0 +1,92 @@
+{
+  "agent_name": "Appliance Repair \u2014 Levon Demo",
+  "response_engine": {
+    "type": "retell-llm",
+    "llm_id": "REPLACE_WITH_CREATED_LLM_ID"
+  },
+  "voice_id": "",
+  "language": "en-US",
+  "voice_speed": 0.97,
+  "responsiveness": 0.8,
+  "interruption_sensitivity": 0.75,
+  "enable_backchannel": false,
+  "reminder_trigger_ms": 12000,
+  "reminder_max_count": 1,
+  "max_call_duration_ms": 900000,
+  "end_call_after_silence_ms": 45000,
+  "webhook_url": "https://requesting-calculation-maintaining-perception.trycloudflare.com/webhooks/retell",
+  "webhook_events": [
+    "call_ended",
+    "call_analyzed"
+  ],
+  "post_call_analysis_data": [
+    {
+      "type": "enum",
+      "name": "call_category",
+      "description": "Classify caller purpose based on the actual conversation. Customer brand alone does not imply warranty.",
+      "choices": [
+        "standard",
+        "eligible_warranty",
+        "warranty_representative",
+        "message",
+        "spam",
+        "unknown"
+      ]
+    },
+    {
+      "type": "string",
+      "name": "customer_name",
+      "description": "Extract customer name only when explicitly provided. Empty string if missing. Never invent details, coverage, dates, or outcomes."
+    },
+    {
+      "type": "string",
+      "name": "caller_name",
+      "description": "Extract caller name only when explicitly provided. Empty string if missing. Never invent details, coverage, dates, or outcomes."
+    },
+    {
+      "type": "string",
+      "name": "company",
+      "description": "The company represented by a business caller, only when explicitly stated. Empty for ordinary repair customers, including warranty customers. Never use the appliance brand or the called repair business as company."
+    },
+    {
+      "type": "string",
+      "name": "phone",
+      "description": "Extract phone only when explicitly provided. Empty string if missing. Never invent details, coverage, dates, or outcomes."
+    },
+    {
+      "type": "string",
+      "name": "callback_phone",
+      "description": "Extract callback phone only when explicitly provided. Empty string if missing. Never invent details, coverage, dates, or outcomes."
+    },
+    {
+      "type": "string",
+      "name": "service_address",
+      "description": "Extract service address only when explicitly provided. Empty string if missing. Never invent details, coverage, dates, or outcomes."
+    },
+    {
+      "type": "string",
+      "name": "appliance_type",
+      "description": "Extract appliance type only when explicitly provided. Empty string if missing. Never invent details, coverage, dates, or outcomes."
+    },
+    {
+      "type": "string",
+      "name": "brand",
+      "description": "Extract brand only when explicitly provided. Empty string if missing. Never invent details, coverage, dates, or outcomes."
+    },
+    {
+      "type": "string",
+      "name": "issue",
+      "description": "Describe the appliance symptom in clear words using the whole conversation. Resolve obvious transcription ambiguity from context (for example, will not drain). Do not diagnose or invent symptoms."
+    },
+    {
+      "type": "string",
+      "name": "job_description",
+      "description": "Extract job description only when explicitly provided. Empty string if missing. Never invent details, coverage, dates, or outcomes."
+    },
+    {
+      "type": "string",
+      "name": "notes",
+      "description": "Extract notes only when explicitly provided. Empty string if missing. Never invent details, coverage, dates, or outcomes."
+    }
+  ]
+}
