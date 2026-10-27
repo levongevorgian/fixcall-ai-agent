@@ -103,6 +103,19 @@ class HTTP(unittest.TestCase):
  def test_dashboard_auth(self):
   with self.assertRaises(urllib.error.HTTPError) as e:urllib.request.urlopen(self.base+'/api/calls')
   self.assertEqual(e.exception.code,401)
+ def test_reviewer_only_sees_review_window(self):
+  self.srv.store.webhook({'event':'call_ended','call':{'call_id':'old'}})
+  since=time.time()
+  self.srv.store.webhook({'event':'call_ended','call':{'call_id':'new'}})
+  self.srv.store.webhook({'event':'call_ended','call':{'call_id':'fixture','metadata':{'synthetic':True}}})
+  with patch.dict('os.environ',{'REVIEW_TOKEN':'review-test','REVIEW_SINCE':str(since)}):
+   req=urllib.request.Request(self.base+'/api/calls',headers={'Authorization':'Bearer review-test'})
+   with urllib.request.urlopen(req) as r:self.assertEqual([c['call_id'] for c in json.load(r)['calls']],['new'])
+ def test_reviewer_cannot_post(self):
+  with patch.dict('os.environ',{'REVIEW_TOKEN':'review-test'}):
+   req=urllib.request.Request(self.base+'/anything',data=b'{}',headers={'Authorization':'Bearer review-test'})
+   with self.assertRaises(urllib.error.HTTPError) as e:urllib.request.urlopen(req)
+   self.assertEqual(e.exception.code,401)
  def test_unsigned_webhook(self):
   req=urllib.request.Request(self.base+'/webhooks/retell',data=b'{}')
   with self.assertRaises(urllib.error.HTTPError) as e:urllib.request.urlopen(req)

@@ -30,3 +30,7 @@ The selected voice is Cimo. Levon confirmed that Cimo sounds clear and natural d
 ## Reviewer access
 
 The tested agent was published as version 0; Retell then created draft version 1. Retell's Share dialog was inspected again: the voice-orb toggle and copy-link control are currently disabled. No usable public reviewer link has been created or verified. Arrange a supervised dashboard demonstration or finish account sharing and stable hosting before claiming an unattended live submission is ready.
+
+## Shared link and free reviewer setup
+
+Levon enabled Voice Orb sharing and confirmed a successful shared-link call. He confirmed Cimo voice quality and company/phone readback in a final representative call. The paid-hosting route was abandoned at his request; no paid service was created by this agent. A separate restricted dashboard review key now provides GET-only access to calls after the review window began. 61 tests pass. Final new shared-link-call visibility through that restricted feed remains to be checked.

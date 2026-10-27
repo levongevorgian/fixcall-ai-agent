@@ -79,6 +79,10 @@ class Handler(BaseHTTPRequestHandler):
         value=self.headers.get('Authorization','')
         return bool(self.server.dashboard_token) and hmac.compare_digest(value,'Bearer '+self.server.dashboard_token)
 
+    def reviewer_auth(self):
+        token=os.getenv('REVIEW_TOKEN','')
+        return bool(token) and hmac.compare_digest(self.headers.get('Authorization',''),'Bearer '+token)
+
     def do_GET(self):
         route=urllib.parse.urlparse(self.path).path
         if route=='/health':return self.respond(200,{'status':'ok'})
@@ -86,8 +90,14 @@ class Handler(BaseHTTPRequestHandler):
             filename={'/':'index.html','/app.js':'app.js','/style.css':'style.css'}[route]
             mime={'/':'text/html; charset=utf-8','/app.js':'text/javascript; charset=utf-8','/style.css':'text/css; charset=utf-8'}[route]
             return self.respond(200,(ROOT/'static'/filename).read_bytes(),mime)
-        if not self.dashboard_auth():return self.respond(401,{'error':'Enter the dashboard access key.'})
-        if route=='/api/calls':return self.respond(200,{'calls':self.server.store.feed()})
+        reviewer=self.reviewer_auth()
+        if not self.dashboard_auth() and not reviewer:return self.respond(401,{'error':'Enter the dashboard access key.'})
+        if route=='/api/calls':
+            calls=self.server.store.feed()
+            if reviewer:
+                since=float(os.getenv('REVIEW_SINCE','0'))
+                calls=[c for c in calls if c['updated']>=since and not c.get('synthetic')]
+            return self.respond(200,{'calls':calls})
         if route=='/api/status':return self.respond(200,{'retell_ready':bool(os.getenv('RETELL_API_KEY') and os.getenv('RETELL_AGENT_ID')),
             'telegram_ready':bool(os.getenv('TELEGRAM_BOT_TOKEN') and os.getenv('TELEGRAM_CHAT_ID')),
             'booking_mode':'request_handoff','voice_tested':False})

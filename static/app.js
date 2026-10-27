@@ -15,10 +15,10 @@ function render(){
     left.append(title,node('span','status',(call.outcome||'In progress').replaceAll('_',' ')));
     top.append(left,node('span','status',new Date(call.updated*1000).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})));card.append(top);
     const details=node('div','details');
-    const fields=[['Callback',call.phone||call.callback_phone],['Appliance',[call.brand,call.appliance_type].filter(Boolean).join(' ')],['Service call fee',call.service_fee===undefined?'':`$${call.service_fee}`],['Service address',call.service_address],['Issue / message',call.issue||call.job_description],['Company',call.company],['Reference',call.booking_reference||call.message_reference],['Notes',call.notes]];
+    const fields=[['Callback',call.phone||call.callback_phone],['Appliance',[call.brand,call.appliance_type].filter(Boolean).join(' ')],['Service call fee',call.service_fee===undefined?'':`$${call.service_fee}`],['Service address',call.service_address],['Issue / message',call.issue||call.job_description],['Company',['standard','eligible_warranty'].includes(call.call_type)?'':call.company],['Reference',call.booking_reference||call.message_reference],['Notes',call.notes]];
     for(const [label,value]of fields){if(!value)continue;const f=node('div','field');f.append(node('small','',label),node('div','',String(value)));details.append(f);}card.append(details);
     if(call.summary)card.append(node('p','summary',call.summary));
-    const delivery=call.synthetic?'Local demo only':`Telegram: ${(call.notification_status||'pending').replaceAll('_',' ')}`;
+    const delivery=call.synthetic?'Local demo only':`Saved to call feed · Telegram: ${(call.notification_status||'pending').replaceAll('_',' ')}`;
     card.append(node('p','status',delivery+(call.notification_error?' · '+call.notification_error:'')));
     if(call.transcript){const d=node('details'),s=node('summary','','Read conversation');d.append(s,node('pre','',call.transcript));card.append(d);}
     feed.append(card);

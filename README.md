@@ -2,7 +2,7 @@
 
 A FixCall AI assessment implementation with a Retell conversation prompt, validated booking handoff, callback messages, a protected call-notification feed, and Telegram delivery.
 
-**Current status:** 59 automated tests passed. Live standard, LG warranty, representative, spam, fee-refusal and late-warranty scenarios were verified. Telegram delivery was confirmed, with intermittent network delays. External reviewer access and stable hosting remain to be completed. See docs/LIVE_TEST_RESULTS.md.
+**Current status:** 61 automated tests passed. Live standard, LG warranty, representative, spam, fee-refusal and late-warranty scenarios were verified. Telegram delivery was confirmed, with intermittent network delays. The shared agent link passed a user-run live test. Free review runs on the laptop through an HTTPS tunnel; a restricted dashboard is provided for notifications. Keep the laptop awake during an agreed testing window. See docs/LIVE_TEST_RESULTS.md.
 
 ## Start locally
 
@@ -54,3 +54,7 @@ The assignment supplies no calendar or booking provider. `book_repair` therefore
 Retell, n8n, and Telegram are recommendations in the assignment. This implementation uses Retell and direct Python-to-Telegram delivery; n8n is not required. SQLite makes the notification queue inspectable and durable without an additional hosted automation dependency.
 
 Do not submit `.env`, runtime files, caller data, or API credentials. Use `python3 package_submission.py` to create a clean archive after live testing and updating the validation record.
+
+## Free review setup
+
+No paid hosting is needed for a supervised test window. See docs/FREE_REVIEW.md and docs/REQUIREMENTS_CHECKLIST.md. Optional paid deployment configuration is in docs/optional-paid-render.yaml and is not deployed automatically.
