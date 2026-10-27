@@ -9,7 +9,7 @@
       "type": "custom",
       "name": "prepare_booking",
       "description": "Validate complete customer intake and determine the fee before booking. No scheduling occurs.",
-      "url": "https://requesting-calculation-maintaining-perception.trycloudflare.com/tools/prepare_booking",
+      "url": "https://YOUR_PUBLIC_HTTPS_HOST/tools/prepare_booking",
       "method": "POST",
       "headers": {
         "Authorization": "Bearer REPLACE_WITH_LOCAL_TOOL_TOKEN"
@@ -78,7 +78,7 @@
       "type": "custom",
       "name": "book_repair",
       "description": "Hand the validated repair request to booking. Standard customers must first hear and explicitly accept $99. Warranty customers need no fee agreement.",
-      "url": "https://requesting-calculation-maintaining-perception.trycloudflare.com/tools/book_repair",
+      "url": "https://YOUR_PUBLIC_HTTPS_HOST/tools/book_repair",
       "method": "POST",
       "headers": {
         "Authorization": "Bearer REPLACE_WITH_LOCAL_TOOL_TOKEN"
@@ -115,7 +115,7 @@
       "type": "custom",
       "name": "take_message",
       "description": "Save a relevant caller message. Warranty company representatives never enter booking.",
-      "url": "https://requesting-calculation-maintaining-perception.trycloudflare.com/tools/take_message",
+      "url": "https://YOUR_PUBLIC_HTTPS_HOST/tools/take_message",
       "method": "POST",
       "headers": {
         "Authorization": "Bearer REPLACE_WITH_LOCAL_TOOL_TOKEN"

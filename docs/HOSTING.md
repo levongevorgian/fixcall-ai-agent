@@ -2,7 +2,7 @@
 
 Deployment is prepared, not yet performed. No cloud account or payment has been authorized.
 
-Put the clean project source in a dedicated private repository, with render.yaml at its root. Never push .env or runtime. In Render select New > Blueprint and connect that repository. Review Starter service and 1 GB persistent disk charges before creation. Free instances sleep and cannot retain this SQLite database through a persistent disk.
+This is an optional paid alternative, not the selected free review setup. If choosing it later, copy docs/optional-paid-render.yaml to render.yaml at the repository root. Never push .env or runtime. In Render select New > Blueprint and connect that repository. Review Starter service and 1 GB persistent disk charges before creation. Free instances sleep and cannot retain this SQLite database through a persistent disk.
 
 Enter RETELL_API_KEY, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID and TOOL_TOKEN privately in Render's environment controls, using the existing local values. Render generates a separate DASHBOARD_TOKEN. Do not copy the whole local .env: HOST and PORT must use the hosting values. Run one instance only.
 

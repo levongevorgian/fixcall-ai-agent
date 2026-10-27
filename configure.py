@@ -106,7 +106,7 @@ def main():
     llm,agent=payloads(base,voice,token)
     if args.action=='export':
         # Always sanitize authorization values in distributable payloads.
-        llm,_=payloads(base,voice,'REPLACE_WITH_LOCAL_TOOL_TOKEN')
+        llm,agent=payloads('https://YOUR_PUBLIC_HTTPS_HOST',voice,'REPLACE_WITH_LOCAL_TOOL_TOKEN')
         (ROOT/'agent'/'retell-llm.template.json').write_text(json.dumps(llm,indent=2))
         (ROOT/'agent'/'retell-agent.template.json').write_text(json.dumps(agent,indent=2))
         print('Sanitized templates saved under agent/. These are API payloads, not dashboard import bundles.');return

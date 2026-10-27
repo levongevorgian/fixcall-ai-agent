@@ -33,10 +33,10 @@ In Telegram, open the verified @BotFather account. Create a bot using /newbot an
 Open a private chat with your new bot and press Start. To find the chat ID without exposing the token in a browser URL, use the helper:
 
 ```sh
-python3 telegram_setup.py
+python3 configure_telegram.py
 ```
 
-It reads the token from `.env` and displays chat IDs/names from received updates. Choose your own private chat and save its ID as TELEGRAM_CHAT_ID. Restart the backend. The first real completed call will send a notification; synthetic demo fixtures are never sent.
+It privately saves or reuses the token, verifies the bot, and asks you to send Hello to that exact bot. Choose your own private chat from its list; the helper saves TELEGRAM_CHAT_ID. Restart the backend. The first real completed call will send a notification; synthetic demo fixtures are never sent.
 
 This implementation sends plain text to avoid HTML/Markdown injection from caller speech. After analysis arrives, it edits the initial message instead of routinely sending a second message. Telegram bot delivery needs your bot to have permission to send to the chosen chat.
 

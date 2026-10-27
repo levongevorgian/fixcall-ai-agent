@@ -22,7 +22,7 @@
   "reminder_max_count": 1,
   "max_call_duration_ms": 900000,
   "end_call_after_silence_ms": 45000,
-  "webhook_url": "https://requesting-calculation-maintaining-perception.trycloudflare.com/webhooks/retell",
+  "webhook_url": "https://YOUR_PUBLIC_HTTPS_HOST/webhooks/retell",
   "webhook_events": [
     "call_ended",
     "call_analyzed"

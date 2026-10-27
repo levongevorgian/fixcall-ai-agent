@@ -4,6 +4,12 @@ A FixCall AI assessment implementation with a Retell conversation prompt, valida
 
 **Current status:** 61 automated tests passed. Live standard, LG warranty, representative, spam, fee-refusal and late-warranty scenarios were verified. Telegram delivery was confirmed, with intermittent network delays. The shared agent link passed a user-run live test. Free review runs on the laptop through an HTTPS tunnel; a restricted dashboard is provided for notifications. Keep the laptop awake during an agreed testing window. See docs/LIVE_TEST_RESULTS.md.
 
+## For the reviewer
+
+Start with [the reviewer guide](docs/REVIEWER_GUIDE.md), [requirements checklist](docs/REQUIREMENTS_CHECKLIST.md), and [live test results](docs/LIVE_TEST_RESULTS.md). The final version-2 shared-link test completed an LG request and delivered its analyzed summary to the protected reviewer feed.
+
+Live agent and dashboard links, plus the read-only access key, are shared privately by email. This public repository contains source and sanitized configuration only. Arrange a review window with Levon because the free demo backend runs on his laptop. No GitHub account is required to read or download this repository.
+
 ## Start locally
 
 Requires Python 3.11 or newer. No third-party Python packages are needed.
