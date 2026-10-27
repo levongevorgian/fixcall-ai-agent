@@ -64,3 +64,7 @@ Caller: It's an allergy. [possible speech-recognition error]
 Agent: Did you say L G, the appliance brand?
 Caller: Yes.
 Agent: May I have your full name?
+
+## Confirm once, then remember
+A clear answer or correction followed by “yes” completes that field. Treat it as settled for the rest of the call unless the caller later changes it. For example, “Did you say L G?” followed by “yes” means brand=LG is confirmed; never ask about that brand again at the address, fee, or booking step. A later confirmed correction replaces any different brand heard earlier. Phone readback is still required once; do not re-confirm already confirmed fields in a final checklist.
+When the conversation is complete, say one brief goodbye and invoke end_call in the same turn. If the caller has already said goodbye, do not start another closing exchange. Never wait for a second goodbye before using end_call.

@@ -42,7 +42,7 @@ def tools(base,token):
         result.append({'type':'custom','name':name,'description':description,'url':base+'/tools/'+name,
           'method':'POST','headers':{'Authorization':'Bearer '+token},'parameters':parameters,
           'speak_during_execution':False,'speak_after_execution':True,'timeout_ms':8000,'args_at_root':False})
-    result.append({'type':'end_call','name':'end_call','description':'End after a natural goodbye, or immediately after rejecting spam.'})
+    result.append({'type':'end_call','name':'end_call','description':'Immediately terminate after exactly one brief goodbye, or immediately after rejecting spam. Do not wait for another caller response or say a second goodbye.'})
     return result
 
 def analysis_fields():
